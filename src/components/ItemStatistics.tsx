@@ -10,7 +10,8 @@ interface ItemStatisticsProps {
 
 const ItemStatistics = ({ item, onUpdate, onRemove }: ItemStatisticsProps) => {
   return (
-    <li className="stats__info-item">
+    // <li className="stats__info-item">
+    <>
       <div className="stats__info-date">{item.date}</div>
       <div className="stats__info-km">{item.km}</div>
       <div className="stats__info-change">
@@ -27,7 +28,9 @@ const ItemStatistics = ({ item, onUpdate, onRemove }: ItemStatisticsProps) => {
           onClick={() => onRemove(item.date)}
         />
       </div>
-    </li>
+    </>
+
+    // </li>
   );
 };
 

@@ -9,12 +9,14 @@ interface StatisticsProps {
 
 const Statistics = ({ list, onUpdate, onRemove }: StatisticsProps) => {
   const statItems = list.map((obj) => (
-    <ItemStatistics
-      key={obj.date}
-      item={obj}
-      onUpdate={onUpdate}
-      onRemove={onRemove}
-    />
+    <li className="stats__info-item">
+      <ItemStatistics
+        key={obj.date}
+        item={obj}
+        onUpdate={onUpdate}
+        onRemove={onRemove}
+      />
+    </li>
   ));
 
   return (

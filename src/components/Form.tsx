@@ -19,27 +19,27 @@ const Form = ({ form, onInputChange, onSubmit }: FormProps) => {
   };
 
   const validateForm = () => {
-    if (!form.date.match(/\d{2}\.\d{2}\.\d{2}/)) {
-      onSubmit({ ...form, date: "" });
-      return;
-    }
-    const inputDate = 20 + form.date.split(".").reverse().join("-");
+    // if (!form.date.match(/\d{2}\.\d{2}\.\d{2}/)) {
+    //   onSubmit({ ...form, date: "" });
+    //   return;
+    // }
+    // const inputDate = 20 + form.date.split(".").reverse().join("-");
 
-    const localDate = new Date(
-      new Date().getTime() - new Date().getTimezoneOffset() * 1000 * 60
-    )
-      .toISOString()
-      .slice(0, 10);
+    // const localDate = new Date(
+    //   new Date().getTime() - new Date().getTimezoneOffset() * 1000 * 60
+    // )
+    //   .toISOString()
+    //   .slice(0, 10);
 
-    if (
-      isNaN(Date.parse(inputDate)) ||
-      Date.parse(inputDate) > Date.parse(localDate)
-    ) {
-      onSubmit({ ...form, date: "" });
-      return;
-    }
+    // if (
+    //   isNaN(Date.parse(inputDate)) ||
+    //   Date.parse(inputDate) > Date.parse(localDate)
+    // ) {
+    //   onSubmit({ ...form, date: "" });
+    //   return;
+    // }
 
-    if (!Number(form.km)) {
+    if (!Number(form.km) || Number(form.km) < 0) {
       onSubmit({ ...form, km: "" });
       return;
     }
@@ -56,7 +56,7 @@ const Form = ({ form, onInputChange, onSubmit }: FormProps) => {
         <input
           id="date"
           className="form__date-input"
-          type="text"
+          type="date"
           minLength={8}
           maxLength={8}
           placeholder="Введите верно дату ..."
