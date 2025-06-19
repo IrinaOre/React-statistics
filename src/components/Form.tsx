@@ -19,26 +19,6 @@ const Form = ({ form, onInputChange, onSubmit }: FormProps) => {
   };
 
   const validateForm = () => {
-    // if (!form.date.match(/\d{2}\.\d{2}\.\d{2}/)) {
-    //   onSubmit({ ...form, date: "" });
-    //   return;
-    // }
-    // const inputDate = 20 + form.date.split(".").reverse().join("-");
-
-    // const localDate = new Date(
-    //   new Date().getTime() - new Date().getTimezoneOffset() * 1000 * 60
-    // )
-    //   .toISOString()
-    //   .slice(0, 10);
-
-    // if (
-    //   isNaN(Date.parse(inputDate)) ||
-    //   Date.parse(inputDate) > Date.parse(localDate)
-    // ) {
-    //   onSubmit({ ...form, date: "" });
-    //   return;
-    // }
-
     if (!Number(form.km) || Number(form.km) < 0) {
       onSubmit({ ...form, km: "" });
       return;
@@ -73,8 +53,9 @@ const Form = ({ form, onInputChange, onSubmit }: FormProps) => {
         <input
           id="km"
           className="form__km-input"
-          type="text"
-          maxLength={6}
+          type="number"
+          min="0"
+          max="6"
           placeholder="Пройденное расстояние в км ..."
           required
           name="km"

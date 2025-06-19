@@ -10,7 +10,6 @@ interface ItemStatisticsProps {
 
 const ItemStatistics = ({ item, onUpdate, onRemove }: ItemStatisticsProps) => {
   return (
-    // <li className="stats__info-item">
     <>
       <div className="stats__info-date">{item.date}</div>
       <div className="stats__info-km">{item.km}</div>
@@ -29,8 +28,6 @@ const ItemStatistics = ({ item, onUpdate, onRemove }: ItemStatisticsProps) => {
         />
       </div>
     </>
-
-    // </li>
   );
 };
 
